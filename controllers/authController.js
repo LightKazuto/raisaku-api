@@ -137,11 +137,12 @@ exports.login = async (req, res) => {
     }
 
     // Generate JWT Token
-    const jwtSecret = process.env.JWT_SECRET || "raisaku_jwt_super_secret_key_2026";
+    const jwtSecret =
+      process.env.JWT_SECRET || "raisaku_jwt_super_secret_key_2026";
     const token = jwt.sign(
       { id: user.id, username: user.username, email: user.email },
       jwtSecret,
-      { expiresIn: "7d" }
+      { expiresIn: "7d" },
     );
 
     res.status(200).json({

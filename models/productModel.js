@@ -5,7 +5,7 @@ const Product = {
     const query = `
             SELECT p.*, c.name as category_name 
             FROM products p 
-            JOIN categories c ON p.category_id = c.id 
+            LEFT JOIN categories c ON p.category_id = c.id 
             ORDER BY p.id ASC
         `;
     const result = await db.query(query);
